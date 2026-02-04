@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Princess 💗</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: #ffd6e8;
+      overflow: hidden;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    h1 {
+      color: #c2185b;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #ff5c8a;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e91e63;
+    }
+
+    .letter {
+      max-width: 600px;
+      color: #880e4f;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    /* Floating love */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 20px;
+      animation: float 8s linear infinite;
+      color: #ff4081;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div id="page1" class="page active">
+    <h1>💗 Love Is Floating 💗</h1>
+    <p>Enter the password</p>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div id="page2" class="page">
+    <div class="letter">
+      <p>on the 11th of october 2025 you came into my life</p>
+      <p>on the 29th of december i took the first step into making you my wife</p>
+      <p>my little sunflower, my princess</p>
+      <p>
+        sometimes i don’t even know if you’re real because a girl this perfect is a girl i’ve only met in a dream
+      </p>
+      <p>
+        i once said it’s not just love but i actually trust you with my future, i want it to be our future
+      </p>
+      <p>
+        i love everything about you, from the way you walk to the way you talk
+      </p>
+      <p>
+        i could go on and on about how much you mean to me but i guess you’ll have to find out as time goes on
+      </p>
+      <p>
+        i love you so much and i know this is just the start of our story
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === "PRINCESS") {
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page2").classList.add("active");
+      } else {
+        document.getElementById("error").textContent = "Wrong password 💔";
+      }
+    }
+
+    // Floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }, 500);
+  </script>
+
+</body>
+</html>
